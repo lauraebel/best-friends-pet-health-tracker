@@ -9,9 +9,9 @@ public class Pet {
 	private String petType;
 	private String petBreed;
 	private int petAge;
-	private LocalDate petDateOfBirth;
+	private String petDateOfBirth;
 	private String petGender;
-	private boolean petFixed;
+	private String petFixed;
 	private int ownerId;
 	private int veterinarianId;
 	
@@ -45,23 +45,11 @@ public class Pet {
 	public void setPetAge(int petAge) {
 		this.petAge = petAge;
 	}
-	public LocalDate getPetDateOfBirth() {
-		return petDateOfBirth;
-	}
-	public void setPetDateOfBirth(LocalDate petDateOfBirth) {
-		this.petDateOfBirth = petDateOfBirth;
-	}
 	public String getPetGender() {
 		return petGender;
 	}
 	public void setPetGender(String petGender) {
 		this.petGender = petGender;
-	}
-	public boolean isPetFixed() {
-		return petFixed;
-	}
-	public void setPetFixed(boolean petFixed) {
-		this.petFixed = petFixed;
 	}
 	public int getOwnerId() {
 		return ownerId;
@@ -75,4 +63,17 @@ public class Pet {
 	public void setVeterinarianId(int veterinarianId) {
 		this.veterinarianId = veterinarianId;
 	}
+	public String getPetDateOfBirth() {
+		return petDateOfBirth;
+	}
+	public void setPetDateOfBirth(String petDateOfBirth) {
+		this.petDateOfBirth = petDateOfBirth;
+	}
+	public String getPetFixed() {
+		return petFixed;
+	}
+	public void setPetFixed(String petFixed) {
+		this.petFixed = petFixed;
+	}
+	
 }

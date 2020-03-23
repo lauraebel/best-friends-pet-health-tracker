@@ -3,17 +3,24 @@ package com.bestfriends.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.bestfriends.model.Registration;
+import com.bestfriends.model.Pet;
+import com.bestfriends.model.PetDAO;
+import com.bestfriends.stuff.Registration;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private PetDAO petDao;
 	
 	@RequestMapping("/")
 	public String displayHomePage(HttpServletRequest request) {
@@ -47,4 +54,21 @@ public class HomeController {
 		return "addPet";
 	}
 	
+	@RequestMapping(path="/petInput", method=RequestMethod.POST)
+	public String addPet(@RequestParam String petName, @RequestParam String petType, @RequestParam String petBreed, @RequestParam int petAge,
+			@RequestParam String petDateOfBirth, @RequestParam String petGender, @RequestParam String petFixed) {
+	
+		Pet newPet = new Pet();
+		newPet.setPetName(petName);
+		newPet.setPetType(petType);
+		newPet.setPetBreed(petBreed);
+		newPet.setPetGender(petGender);
+		newPet.setPetFixed(petFixed);
+		newPet.setPetAge(petAge);
+		newPet.setPetDateOfBirth(petDateOfBirth);
+		
+		petDao.addNewPet(newPet);
+				
+		return "success";
+	}
 }

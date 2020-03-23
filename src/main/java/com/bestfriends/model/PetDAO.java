@@ -1,8 +1,6 @@
-package com.bestfriends.dao;
+package com.bestfriends.model;
 
 import java.util.List;
-
-import com.bestfriends.model.Pet;
 
 public interface PetDAO {
 	

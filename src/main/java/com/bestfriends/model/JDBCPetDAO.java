@@ -1,4 +1,4 @@
-package com.bestfriends.dao;
+package com.bestfriends.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,6 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
-
-import com.bestfriends.model.Pet;
 
 public class JDBCPetDAO implements PetDAO {
 	
@@ -33,7 +31,7 @@ public class JDBCPetDAO implements PetDAO {
 			pet.setPetBreed(results.getString("pet_breed"));
 			pet.setPetAge(results.getInt("pet_age"));
 			pet.setPetGender(results.getString("pet_gender"));
-			pet.setPetFixed(results.getBoolean("pet_fixed"));
+			pet.setPetFixed(results.getString("pet_fixed"));
 			
 			allPets.add(pet);
 		}
@@ -50,7 +48,7 @@ public class JDBCPetDAO implements PetDAO {
 	public void addNewPet(Pet newPet) {
 		Integer petId = getNextPetId();
 		String sqlInsertPet = "INSERT INTO pet(pet_id, pet_name, pet_type, pet_breed, pet_age, pet_date_of_birth, pet_gender, pet_fixed, owner_id, veterinarian_id) VALUES (?,?,?,?,?,?,?,?,?,?)";
-		jdbcTemplate.update(sqlInsertPet, petId, newPet.getPetName(), newPet.getPetType(), newPet.getPetBreed(), newPet.getPetAge(), newPet.getPetDateOfBirth(), newPet.getPetGender(), newPet.isPetFixed(), newPet.getOwnerId(), newPet.getVeterinarianId());
+		jdbcTemplate.update(sqlInsertPet, petId, newPet.getPetName(), newPet.getPetType(), newPet.getPetBreed(), newPet.getPetAge(), newPet.getPetDateOfBirth(), newPet.getPetGender(), newPet.getPetFixed(), newPet.getOwnerId(), newPet.getVeterinarianId());
 		newPet.setPetId(petId);
 	}
 

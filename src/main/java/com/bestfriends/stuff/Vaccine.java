@@ -1,4 +1,4 @@
-package com.bestfriends.model;
+package com.bestfriends.stuff;
 
 public class Vaccine {
 

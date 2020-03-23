@@ -1,4 +1,4 @@
-package com.bestfriends.model;
+package com.bestfriends.stuff;
 
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Size;
