@@ -18,6 +18,9 @@
             display: inline-block;
         }
     </style>
+    
+   <h1>Best Friends Pet Health Tracker</h1>
+   
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">

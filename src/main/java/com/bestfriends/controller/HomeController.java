@@ -1,12 +1,20 @@
 package com.bestfriends.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
 public class HomeController {
 	
-	@RequestMapping("/homePage")
-	public String displayHomePage() {
+	@RequestMapping("/")
+	public String displayHomePage(HttpServletRequest request) {
 		return "homePage";
 	}
 
+	@RequestMapping("/createAccount")
+	public String displayCreateAccountPage(HttpServletRequest request) {
+		return "createAccount";
+	}
 }
