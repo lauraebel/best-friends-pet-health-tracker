@@ -42,5 +42,9 @@ public class HomeController {
 		return "success";
 	}
 
+	@RequestMapping(path="/addPet", method=RequestMethod.GET)
+	public String addPetForm() {
+		return "addPet";
+	}
 	
 }

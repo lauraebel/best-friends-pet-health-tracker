@@ -3,6 +3,8 @@
 
 <section id="main-content" class="main">
 
+<h4><a href="<c:url value="/addPet" />" >Add A Pet</a></h4>
+
 <h4>Welcome! Please Sign In:</h3>
 
 
