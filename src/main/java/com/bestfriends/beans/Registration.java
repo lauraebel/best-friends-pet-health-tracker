@@ -1,4 +1,4 @@
-package com.bestfriends.stuff;
+package com.bestfriends.beans;
 
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Size;

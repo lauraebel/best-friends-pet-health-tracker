@@ -1,4 +1,4 @@
-package com.bestfriends.stuff;
+package com.bestfriends.beans;
 
 public class Vaccine {
 

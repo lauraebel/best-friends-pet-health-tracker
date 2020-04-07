@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bestfriends.beans.Registration;
 import com.bestfriends.model.Pet;
 import com.bestfriends.model.PetDAO;
-import com.bestfriends.stuff.Registration;
 
 @Controller
 public class HomeController {

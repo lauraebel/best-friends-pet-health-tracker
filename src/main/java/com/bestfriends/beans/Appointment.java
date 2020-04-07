@@ -1,4 +1,4 @@
-package com.bestfriends.stuff;
+package com.bestfriends.beans;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
