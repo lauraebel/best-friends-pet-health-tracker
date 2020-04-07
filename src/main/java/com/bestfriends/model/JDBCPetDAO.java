@@ -23,17 +23,17 @@ public class JDBCPetDAO implements PetDAO {
 	@Override
 	public List<Pet> getAllPets() {
 		List<Pet> allPets = new ArrayList<>();
-		String sqlSelectAllPets = "SELECT pet_id, pet_name, pet_type, pet_breed, pet_age, pet_gender, pet_fixed FROM pet";
+		String sqlSelectAllPets = "SELECT id, name, type, breed, age, gender, fixed FROM pet";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectAllPets);
 		while(results.next()) {
 			Pet pet = new Pet();
-			pet.setPetId(results.getInt("pet_id"));
-			pet.setPetName(results.getString("pet_name"));
-			pet.setPetType(results.getString("pet_type"));
-			pet.setPetBreed(results.getString("pet_breed"));
-			pet.setPetAge(results.getInt("pet_age"));
-			pet.setPetGender(results.getString("pet_gender"));
-			pet.setPetFixed(results.getString("pet_fixed"));
+			pet.setPetId(results.getInt("id"));
+			pet.setPetName(results.getString("name"));
+			pet.setPetType(results.getString("type"));
+			pet.setPetBreed(results.getString("breed"));
+			pet.setPetAge(results.getInt("age"));
+			pet.setPetGender(results.getString("gender"));
+			pet.setPetFixed(results.getString("fixed"));
 			
 			allPets.add(pet);
 		}
@@ -49,8 +49,8 @@ public class JDBCPetDAO implements PetDAO {
 	@Override
 	public void addNewPet(Pet newPet) {
 		Integer petId = getNextPetId();
-		String sqlInsertPet = "INSERT INTO pet(pet_id, pet_name, pet_type, pet_breed, pet_age, pet_date_of_birth, pet_gender, pet_fixed, owner_id, veterinarian_id) VALUES (?,?,?,?,?,?,?,?,?,?)";
-		jdbcTemplate.update(sqlInsertPet, petId, newPet.getPetName(), newPet.getPetType(), newPet.getPetBreed(), newPet.getPetAge(), newPet.getPetDateOfBirth(), newPet.getPetGender(), newPet.getPetFixed(), newPet.getOwnerId(), newPet.getVeterinarianId());
+		String sqlInsertPet = "INSERT INTO pet(id, name, type, breed, age, date_of_birth, gender, fixed) VALUES (?,?,?,?,?,?,?,?)";
+		jdbcTemplate.update(sqlInsertPet, petId, newPet.getPetName(), newPet.getPetType(), newPet.getPetBreed(), newPet.getPetAge(), newPet.getPetDateOfBirth(), newPet.getPetGender(), newPet.getPetFixed());
 		newPet.setPetId(petId);
 	}
 
@@ -67,7 +67,7 @@ public class JDBCPetDAO implements PetDAO {
 	}
 
 	private Integer getNextPetId() {
-		String sqlSelectNextId = "SELECT NEXTVAL('pet_pet_id_seq')";
+		String sqlSelectNextId = "SELECT NEXTVAL('pet_id_seq')";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectNextId);
 		Integer petId = null;
 		if(results.next()) {

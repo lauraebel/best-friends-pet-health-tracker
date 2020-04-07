@@ -7,6 +7,18 @@ DROP TABLE IF EXISTS owner;
 DROP TABLE IF EXISTS vaccine;
 DROP TABLE IF EXISTS veterinarian;
 
+CREATE TABLE pet (
+id SERIAL NOT NULL, 
+name CHARACTER VARYING(255) NOT NULL, 
+type CHARACTER VARYING(40) NOT NULL, 
+breed CHARACTER VARYING(100) NOT NULL, 
+age INTEGER NOT NULL, 
+date_of_birth DATE, 
+gender CHARACTER VARYING(10) NOT NULL, 
+fixed varchar(3) NOT NULL, 
+PRIMARY KEY (id)
+);
+
 CREATE TABLE owner (
 id SERIAL NOT NULL, 
 first_name CHARACTER VARYING(35) NOT NULL, 
@@ -27,22 +39,6 @@ city CHARACTER VARYING(70),
 state CHARACTER VARYING(20), 
 postal_code CHARACTER VARYING(10), 
 PRIMARY KEY (id)
-);
-
-CREATE TABLE pet (
-id SERIAL NOT NULL, 
-pet_name CHARACTER VARYING(255) NOT NULL, 
-pet_type CHARACTER VARYING(40) NOT NULL, 
-pet_breed CHARACTER VARYING(100) NOT NULL, 
-pet_age INTEGER NOT NULL, 
-pet_date_of_birth DATE, 
-pet_gender CHARACTER VARYING(10) NOT NULL, 
-pet_fixed BOOLEAN NOT NULL, 
-owner_id INTEGER NOT NULL, 
-veterinarian_id INTEGER NOT NULL, 
-PRIMARY KEY (id),
-CONSTRAINT fk_pet_owner_id FOREIGN KEY (owner_id) REFERENCES "owner" ("id"), 
-CONSTRAINT fk_pet_veterinarian_id FOREIGN KEY (veterinarian_id) REFERENCES "veterinarian" ("id")
 );
 
 CREATE TABLE medication (

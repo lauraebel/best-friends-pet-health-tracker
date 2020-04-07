@@ -1,5 +1,7 @@
 package com.bestfriends.controller;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -56,7 +58,7 @@ public class HomeController {
 	
 	@RequestMapping(path="/petInput", method=RequestMethod.POST)
 	public String addPet(@RequestParam String petName, @RequestParam String petType, @RequestParam String petBreed, @RequestParam int petAge,
-			@RequestParam String petDateOfBirth, @RequestParam String petGender, @RequestParam String petFixed) {
+			@RequestParam Date petDateOfBirth, @RequestParam String petGender, @RequestParam String petFixed) {
 	
 		Pet newPet = new Pet();
 		newPet.setPetName(petName);

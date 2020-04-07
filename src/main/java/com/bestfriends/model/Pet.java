@@ -1,6 +1,6 @@
 package com.bestfriends.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Pet {
 
@@ -9,7 +9,7 @@ public class Pet {
 	private String petType;
 	private String petBreed;
 	private int petAge;
-	private String petDateOfBirth;
+	private Date petDateOfBirth;
 	private String petGender;
 	private String petFixed;
 	private int ownerId;
@@ -63,10 +63,10 @@ public class Pet {
 	public void setVeterinarianId(int veterinarianId) {
 		this.veterinarianId = veterinarianId;
 	}
-	public String getPetDateOfBirth() {
+	public Date getPetDateOfBirth() {
 		return petDateOfBirth;
 	}
-	public void setPetDateOfBirth(String petDateOfBirth) {
+	public void setPetDateOfBirth(Date petDateOfBirth) {
 		this.petDateOfBirth = petDateOfBirth;
 	}
 	public String getPetFixed() {

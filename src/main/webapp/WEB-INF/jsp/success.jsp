@@ -5,7 +5,7 @@
 
 
 
-<h1>You Have Successfully Added ${newPet.petName} to Your Profile!</h1>
+<h1>Your pet has been successfully added!</h1>
 
 
 
